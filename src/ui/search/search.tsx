@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-
+import { useDebouncedCallback } from "use-debounce";
 
 export default function Search() {
   const seachParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = (term: string) => {
+  const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(seachParams);
     if (term) {
       params.set("q", term);
@@ -17,11 +17,11 @@ export default function Search() {
       params.delete("q");
     }
     replace(`${pathname}?${params}`);
-  };
+  }, 300);
 
   return (
-    <div className="absolute flex flex-col items-center bg-hero bg-cover bg-center h-64 w-full">
-      <div className="relative flex flex-col gap-2 top-8 w-3/4 lg:w-2/4 xl:w-[38%]">
+    <div className="relative flex flex-col items-center bg-hero bg-cover bg-center h-60 w-full">
+      <div className="relative flex flex-col gap-2 top-8 w-3/4 lg:w-[47%] xl:w-[40%]">
         <label htmlFor="search" className="absolute left-4 top-4">
           <Image
             src={"/Search.svg"}
@@ -35,7 +35,7 @@ export default function Search() {
           name="search"
           id="search"
           placeholder="username"
-          className="outline-none bg-20293A p-4 pl-14 text-CDD5E0 rounded-xl ring-2 ring-transparent focus:ring-3662E3"
+          className="outline-none placeholder:text-4A5567 bg-20293A p-4 pl-14 text-CDD5E0 rounded-xl ring-2 ring-transparent focus:ring-3662E3"
           onChange={(e) => {
             handleSearch(e.target.value);
           }}

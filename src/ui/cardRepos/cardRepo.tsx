@@ -23,7 +23,7 @@ export default async function CardRepo({
           className="bg-gradient-to-r from-111729 to-1D1B48 p-5 w-full rounded-xl text-CDD5E0 flex flex-col gap-3"
         >
           <h1 className="text-xl font-medium">{element.name}</h1>
-          <p className="text-base font-light">{element.description}</p>
+          <p className="text-sm font-light">{element.description}</p>
           <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-3 *:flex *:gap-1">
             {element.license && (
               <div>

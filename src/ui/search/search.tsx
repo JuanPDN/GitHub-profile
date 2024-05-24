@@ -20,7 +20,7 @@ export default function Search() {
   }, 300);
 
   return (
-    <div className="flex flex-col items-center bg-hero bg-cover bg-center h-64 w-full">
+    <div className="flex flex-col items-center bg-hero bg-cover bg-center h-[250px] w-full">
       <div className="relative flex flex-col gap-2 top-8 w-3/4 lg:w-1/2 xl:w-[38%]">
         <label htmlFor="search" className="absolute left-4 top-4">
           <Image

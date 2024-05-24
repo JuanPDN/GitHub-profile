@@ -5,12 +5,12 @@ import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
 export default function Search() {
-  const seachParams = useSearchParams();
+  const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term: string) => {
-    const params = new URLSearchParams(seachParams);
+    const params = new URLSearchParams(searchParams);
     if (term) {
       params.set("q", term);
     } else {
@@ -39,7 +39,7 @@ export default function Search() {
           onChange={(e) => {
             handleSearch(e.target.value);
           }}
-          defaultValue={seachParams.get("q")?.toString()}
+          defaultValue={searchParams.get("q")?.toString()}
         />
       </div>
     </div>

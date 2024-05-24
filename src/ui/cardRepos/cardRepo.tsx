@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default async function CardRepo({ user }: { user: string }) {
   const data: any[] = await loadRepos(user);
-  
 
   let firstRepos = [];
 
@@ -15,10 +14,10 @@ export default async function CardRepo({ user }: { user: string }) {
   }
 
   return (
-    <div className="mt-[34px] mb-[46px] grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-[34px]">
+    <div className="mt-[34px] mb-[46px] grid grid-cols-1 w-full lg:grid-cols-2 gap-x-8 gap-y-[34px]">
       {firstRepos.map((element, index) => (
         <Link
-          key={index}  
+          key={index}
           href={element.html_url}
           target="_blank"
           className="bg-gradient-to-r from-111729 to-1D1B48 p-5 w-full rounded-xl text-CDD5E0 flex flex-col gap-3"
@@ -33,6 +32,7 @@ export default async function CardRepo({ user }: { user: string }) {
                   width={24}
                   height={24}
                   alt="Chield_alt"
+                  className="size-6"
                 />
                 <span>{element.license.name}</span>
               </div>
@@ -43,11 +43,18 @@ export default async function CardRepo({ user }: { user: string }) {
                 width={24}
                 height={24}
                 alt="Nesting"
+                className="size-6"
               />
               <span>{data[0].forks}</span>
             </div>
             <div>
-              <Image src={"/Star.svg"} width={24} height={24} alt="Star" />
+              <Image
+                src={"/Star.svg"}
+                width={24}
+                height={24}
+                alt="Star"
+                className="size-6"
+              />
               <span>{data[0].watchers}</span>
             </div>
             <div className="pl-3 text-xs">

@@ -1,17 +1,20 @@
+import ViewAll from "@/ui/button/viewAll";
 import Profile from "@/ui/profile/profile";
 import SearchUserSkeleton from "@/ui/search/loading";
 import Search from "@/ui/search/search";
 import UserSearch from "@/ui/search/userSearch";
 import { Suspense } from "react";
 
-export default async function Home({
+export default function Home({
   searchParams,
 }: {
   searchParams?: {
     q?: string;
+    username?: string;
   };
 }) {
   const query = searchParams?.q || "";
+  const username = searchParams?.username || "";
 
   return (
     <main>
@@ -25,8 +28,8 @@ export default async function Home({
             </Suspense>
           )}
 
-          <Profile query={query} />
-          <input type="button" value="View all repositories" className="text-CDD5E0 mb-14 cursor-pointer"/>
+          <Profile username={username} />
+          <ViewAll/>
         </div>
       </div>
     </main>

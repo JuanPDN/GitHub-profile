@@ -11,10 +11,12 @@ export default function Home({
   searchParams?: {
     q?: string;
     username?: string;
+    repos?:string;
   };
 }) {
   const query = searchParams?.q || "";
   const username = searchParams?.username || "";
+  const repos = searchParams?.repos || "";
 
   return (
     <main>
@@ -28,7 +30,7 @@ export default function Home({
             </Suspense>
           )}
         </div>
-        <Profile username={username} />
+        <Profile username={username} repos={repos} />
         <ViewAll />
       </div>
     </main>

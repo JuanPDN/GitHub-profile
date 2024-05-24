@@ -2,16 +2,16 @@ import Image from "next/image";
 import { loadRepos } from "@/lib/data";
 import Link from "next/link";
 
-export default async function CardRepo({ user }: { user: string }) {
+export default async function CardRepo({
+  user,
+  repos,
+}: {
+  user: string;
+  repos: string;
+}) {
   const data: any[] = await loadRepos(user);
 
-  let firstRepos = [];
-
-  if (data.length > 4) {
-    firstRepos = data.slice(0, 4);
-  } else {
-    firstRepos = data;
-  }
+  let firstRepos = repos ? data : data.length > 4 ? data.slice(0, 4) : data;
 
   return (
     <div className="mt-[34px] mb-[46px] grid grid-cols-1 w-full lg:grid-cols-2 gap-x-8 gap-y-[34px]">

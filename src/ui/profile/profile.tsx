@@ -2,7 +2,13 @@ import Image from "next/image";
 import { loadUser } from "@/lib/data";
 import CardRepo from "../cardRepos/cardRepo";
 
-export default async function Profile({ username }: { username: string }) {
+export default async function Profile({
+  username,
+  repos,
+}: {
+  username: string;
+  repos: string;
+}) {
   const user = await loadUser(username);
 
   return (
@@ -35,7 +41,7 @@ export default async function Profile({ username }: { username: string }) {
         <h1 className="text-[2rem]">{user.name}</h1>
         <p className="text-base">{user.bio}</p>
       </div>
-      <CardRepo user={user.login} />
+      <CardRepo user={user.login} repos={repos} />
     </div>
   );
 }

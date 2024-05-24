@@ -45,7 +45,7 @@ export default async function CardRepo({ user }: { user: string }) {
                 alt="Nesting"
                 className="size-6"
               />
-              <span>{data[0].forks}</span>
+              <span>{element.forks}</span>
             </div>
             <div>
               <Image
@@ -55,7 +55,7 @@ export default async function CardRepo({ user }: { user: string }) {
                 alt="Star"
                 className="size-6"
               />
-              <span>{data[0].watchers}</span>
+              <span>{element.watchers}</span>
             </div>
             <div className="pl-3 text-xs">
               <p>

@@ -8,14 +8,14 @@ export default async function Profile({ username }: { username: string }) {
   return (
     <div className="relative w-full flex flex-col items-center justify-center px-[75px] xl:px-[185px]">
       <Image
-        src={user.avatar_url}
+        src={user.avatar_url || "/no-user-image.png.webp"}
         alt={user.name || "avatar"}
         width={120}
         height={120}
         className="absolute -top-11 left-8 sm:left-[80px] xl:left-[185px] p-2 bg-20293A rounded-3xl object-cover"
       />
       <div
-        className="flex sm:ml-36 lg:ml-32 xl:ml-0 flex-col gap-5 h-full justify-center lg:flex-row sm:mt-3 mt-24 text-base
+        className="flex sm:ml-40 lg:ml-32 xl:ml-0 flex-col gap-5 h-full justify-center lg:flex-row sm:mt-3 mt-24 text-base
       *:flex *:w-fit *:bg-111729 *:divide-x *:divide-4A5567 *:rounded-xl *:text-4A5567 *:py-4 *:items-center"
       >
         <div>
@@ -35,7 +35,7 @@ export default async function Profile({ username }: { username: string }) {
         <h1 className="text-[2rem]">{user.name}</h1>
         <p className="text-base">{user.bio}</p>
       </div>
-      <CardRepo user={user.login}/>
+      <CardRepo user={user.login} />
     </div>
   );
 }

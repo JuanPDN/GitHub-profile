@@ -10,6 +10,7 @@ export async function loadUser(user?: string): Promise<User> {
 }
 
 export async function loadRepos(user?:string) {
+    // await new Promise((resolve) => setTimeout(resolve, 3000))
     user = user?.replaceAll(" ", "")
     user?.trim()
     const data = await

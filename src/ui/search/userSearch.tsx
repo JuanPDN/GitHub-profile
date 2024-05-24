@@ -11,7 +11,7 @@ export default async function UserSearch({ query }: { query: string }) {
   
 
   return (
-    <Link className="flex absolute top-24 w-3/4 lg:w-[47%] xl:w-[41%] gap-3 p-2 bg-111729 text-CDD5E0 rounded-xl cursor-pointer"
+    <Link className="flex absolute top-24 w-3/4 lg:w-1/2 xl:w-[38%] gap-3 p-2 bg-111729 text-CDD5E0 rounded-xl cursor-pointer"
     href={`/?username=${login}`}
     >
       <Image

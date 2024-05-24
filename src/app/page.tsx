@@ -1,4 +1,4 @@
-import ViewAll from "@/ui/button/viewAll";
+import ViewAll from "@/ui/buton/viewAll";
 import Profile from "@/ui/profile/profile";
 import SearchUserSkeleton from "@/ui/search/loading";
 import Search from "@/ui/search/search";
@@ -19,18 +19,17 @@ export default function Home({
   return (
     <main>
       <div className="bg-20293A w-full h-screen overflow-auto">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center relative">
           <Search />
 
           {query && (
-            <Suspense fallback={<SearchUserSkeleton />}>
+            <Suspense key={query} fallback={<SearchUserSkeleton />}>
               <UserSearch query={query} />
             </Suspense>
           )}
-
-          <Profile username={username} />
-          <ViewAll/>
         </div>
+        <Profile username={username} />
+        <ViewAll />
       </div>
     </main>
   );
